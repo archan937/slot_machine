@@ -1,10 +1,10 @@
 # SlotMachine
 
-Lorem ipsum dolor sit amet, consectetur adipisicing eli
+Ruby gem for matching available slots (time slots are also supported)
 
 ## Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ## Installation
 
@@ -18,7 +18,25 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ## Usage
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### SlotMachine::Slot module
+
+The core implementation of the SlotMachine gem is written in `SlotMachine::Slot`. A module which has to be included within a Ruby class.
+
+The gem provides the classes `Slot` and `TimeSlot` of which `Slot` is defined as follows:
+
+    class Slot
+      include SlotMachine::Slot
+    end
+
+Cool, huh? `TimeSlot` also includes the `SlotMachine::Slot` module and overrides a few methods to provide time slot specific behaviour.
+
+### Slot
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+### TimeSlot
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ## Using the console
 
@@ -28,7 +46,25 @@ Run the following command in your console:
 
     $ script/console
     Loading development environment (SlotMachine 0.1.0)
-    [1] pry(main)>
+    [1] pry(main)> s = Slot.new 0..25
+    => #<Slot @start=0 @end=25>
+    [2] pry(main)> s.match 15
+    => [#<Slot @start=0 @end=15>, #<Slot @start=10 @end=25>]
+    [3] pry(main)> s.match 10, 4
+    => [#<Slot @start=0 @end=10>,
+     #<Slot @start=4 @end=14>,
+     #<Slot @start=8 @end=18>,
+     #<Slot @start=12 @end=22>]
+    [4] pry(main)> ts = TimeSlot.new 1015..1045
+    => #<TimeSlot @start=1015 @end=1045>
+    [5] pry(main)> ts.match 10
+    => [#<TimeSlot @start=1015 @end=1025>, #<TimeSlot @start=1030 @end=1040>]
+    [6] pry(main)> ts.match 10, 5
+    => [#<TimeSlot @start=1015 @end=1025>,
+     #<TimeSlot @start=1020 @end=1030>,
+     #<TimeSlot @start=1025 @end=1035>,
+     #<TimeSlot @start=1030 @end=1040>,
+     #<TimeSlot @start=1035 @end=1045>]
 
 ## Testing
 
@@ -43,7 +79,6 @@ You can also run a single test file:
 ## TODO
 
 * Accept Time objects within TimeSlot
-* Write documentation
 
 ## Contact me
 

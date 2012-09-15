@@ -67,6 +67,17 @@ module SlotMachine
       match_compared to_compared, other.to_compared, interval
     end
 
+    def inspect
+      inspect_variables = begin
+        if range?
+          "@start=#{@start} @end=#{@end}"
+        else
+          "@length=#{@length}"
+        end
+      end
+      "#<#{self.class.name} #{inspect_variables}>"
+    end
+
   protected
 
     def valid?(value)
@@ -120,7 +131,7 @@ module SlotMachine
     end
 
     def valid!(value)
-      raise ArgumentError, "Passed value in invalid (#{value} given)" unless valid?(value)
+      raise ArgumentError, "Passed value is invalid (#{value} given)" unless valid?(value)
       value
     end
 

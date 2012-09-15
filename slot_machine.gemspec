@@ -3,8 +3,8 @@
 Gem::Specification.new do |gem|
   gem.authors       = ["Paul Engel"]
   gem.email         = ["paul.engel@holder.nl"]
-  gem.summary       = %q{Lorem ipsum dolor sit amet, consectetur adipisicing eli}
-  gem.description   = %q{Lorem ipsum dolor sit amet, consectetur adipisicing eli}
+  gem.summary       = %q{Ruby gem for matching available slots (time slots are also supported)}
+  gem.description   = %q{Ruby gem for matching available slots (time slots are also supported)}
   gem.homepage      = "https://github.com/archan937/slot_machine"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
