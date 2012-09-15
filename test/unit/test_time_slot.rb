@@ -1,9 +1,9 @@
 require File.expand_path("../../test_helper", __FILE__)
 
 module Unit
-  class TestSlot < MiniTest::Unit::TestCase
+  class TestTimeSlot < MiniTest::Unit::TestCase
 
-    describe SlotMachine::Slot do
+    describe SlotMachine::TimeSlot do
       it "should do someting" do
         # assert something
       end

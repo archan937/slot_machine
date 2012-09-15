@@ -1,5 +1,5 @@
 module SlotMachine
-  class Slot
+  class TimeSlot
     include SlotMachine::Abstract::Slot
   end
 end

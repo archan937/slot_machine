@@ -38,11 +38,13 @@ Run the following command for testing:
 
 You can also run a single test file:
 
-    $ ruby test/unit/test_slot.rb
+    $ ruby test/unit/abstract/test_slot.rb
 
 ## TODO
 
-* A lot
+* Match available slots
+* Implement time slots
+* Write documentation
 
 ## Contact me
 

@@ -1,0 +1,1 @@
+require "slot_machine/abstract/slot"
