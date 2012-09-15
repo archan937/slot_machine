@@ -1,4 +1,4 @@
-# SlotMachine
+# SlotMachine [![Build Status](https://secure.travis-ci.org/archan937/slot_machine.png)](http://travis-ci.org/archan937/slot_machine)
 
 Ruby gem for matching available slots (time slots are also supported)
 
