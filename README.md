@@ -38,12 +38,11 @@ Run the following command for testing:
 
 You can also run a single test file:
 
-    $ ruby test/unit/abstract/test_slot.rb
+    $ ruby test/unit/test_time_slot.rb
 
 ## TODO
 
-* Match available slots
-* Implement time slots
+* Accept Time objects within TimeSlot
 * Write documentation
 
 ## Contact me
