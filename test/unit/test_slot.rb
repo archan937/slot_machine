@@ -19,16 +19,17 @@ module Unit
 
       describe "instance methods" do
         it "should have the expected instance methods" do
-          assert Slot.instance_methods.include?(:range?)
-          assert Slot.instance_methods.include?(:length?)
-          assert Slot.instance_methods.include?(:start)
-          assert Slot.instance_methods.include?(:start=)
-          assert Slot.instance_methods.include?(:end)
-          assert Slot.instance_methods.include?(:end=)
-          assert Slot.instance_methods.include?(:length)
-          assert Slot.instance_methods.include?(:length=)
-          assert Slot.instance_methods.include?(:to_compared)
-          assert Slot.instance_methods.include?(:match)
+          slot = Slot.new 1
+          assert slot.respond_to?(:range?)
+          assert slot.respond_to?(:length?)
+          assert slot.respond_to?(:start)
+          assert slot.respond_to?(:start=)
+          assert slot.respond_to?(:end)
+          assert slot.respond_to?(:end=)
+          assert slot.respond_to?(:length)
+          assert slot.respond_to?(:length=)
+          assert slot.respond_to?(:to_compared)
+          assert slot.respond_to?(:match)
         end
       end
 
