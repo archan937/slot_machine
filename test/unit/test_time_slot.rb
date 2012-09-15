@@ -16,9 +16,9 @@ module Unit
       end
 
       it "should represent itself as an array when invoking to_compared" do
-        assert_equal 10 , TimeSlot.new(855..905).to_compared.size
-        assert_equal 222, TimeSlot.new(955..1337).to_compared.size
-        assert_equal [855, 856, 857, 858, 859, 900, 901, 902, 903, 904], TimeSlot.new(855..905).to_compared
+        assert_equal 10 , TimeSlot.new(855..905).send(:to_compared).size
+        assert_equal 222, TimeSlot.new(955..1337).send(:to_compared).size
+        assert_equal [855, 856, 857, 858, 859, 900, 901, 902, 903, 904], TimeSlot.new(855..905).send(:to_compared)
       end
 
       it "should be able to match available slots" do

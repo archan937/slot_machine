@@ -149,8 +149,8 @@ module Unit
         end
 
         it "should represent itself as an array when invoking to_compared" do
-          assert_equal [10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Slot.new(10..20).to_compared
-          assert_equal 50, Slot.new(855..905).to_compared.size
+          assert_equal [10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Slot.new(10..20).send(:to_compared)
+          assert_equal 50, Slot.new(855..905).send(:to_compared).size
         end
 
         it "should be able to match available slots" do
@@ -228,7 +228,7 @@ module Unit
         end
 
         it "should represent itself as an integer when invoking to_compared" do
-          assert_equal 10, Slot.new(10).to_compared
+          assert_equal 10, Slot.new(10).send(:to_compared)
         end
       end
     end

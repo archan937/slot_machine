@@ -26,10 +26,6 @@ module SlotMachine
       end
     end
 
-    def ==(other)
-      self.class == other.class && self.start == other.start && self.end == other.end && self.length == other.length
-    end
-
     def range?
       @type == :range
     end
@@ -50,14 +46,6 @@ module SlotMachine
       @length = length!(value) if length?
     end
 
-    def to_compared
-      if range?
-        to_array
-      else
-        @length
-      end
-    end
-
     def match(other, interval = nil)
       interval ||= self.class.default_interval
       raise ArgumentError, "Interval has to be greater than 0 (#{interval} given)" unless interval > 0
@@ -65,6 +53,10 @@ module SlotMachine
         other = self.class.new other
       end
       match_compared to_compared, other.to_compared, interval
+    end
+
+    def ==(other)
+      self.class == other.class && self.start == other.start && self.end == other.end && self.length == other.length
     end
 
     def inspect
@@ -82,6 +74,14 @@ module SlotMachine
 
     def valid?(value)
       true
+    end
+
+    def to_compared
+      if range?
+        to_array
+      else
+        @length
+      end
     end
 
     def to_array
