@@ -14,6 +14,11 @@ module Unit
             interval 20
           end
           assert_equal 20, Slot.default_interval
+
+          Slot.class_eval do
+            interval 10
+          end
+          assert_equal 10, Slot.default_interval
         end
       end
 
@@ -30,6 +35,8 @@ module Unit
           assert slot.respond_to?(:length=)
           assert slot.respond_to?(:to_compared)
           assert slot.respond_to?(:match)
+          assert slot.respond_to?(:+)
+          assert slot.respond_to?(:-)
         end
       end
 
@@ -75,7 +82,7 @@ module Unit
       end
 
       describe "equality" do
-        it "should return whether it equals another objects" do
+        it "should return whether it equals another object" do
           slot = Slot.new 1
 
           assert !(slot == 1)
@@ -190,6 +197,20 @@ module Unit
             Slot.new(5).match(5)
           end
         end
+
+        it "should be able to add other slots" do
+          assert_equal Slots, (Slot.new(1..10) + (5..8)).class
+          assert_equal Slots, (Slot.new(1..10) + Slot.new(5..8)).class
+          assert_equal Slots, (Slot.new(1..10) + [5..8]).class
+          assert_equal Slots, (Slot.new(1..10) + Slots.new([5..8])).class
+        end
+
+        it "should be able to subtract other slots" do
+          assert_equal Slots, (Slot.new(1..10) - (5..8)).class
+          assert_equal Slots, (Slot.new(1..10) - Slot.new(5..8)).class
+          assert_equal Slots, (Slot.new(1..10) - [5..8]).class
+          assert_equal Slots, (Slot.new(1..10) - Slots.new([5..8])).class
+        end
       end
 
       describe "length slots" do
@@ -233,5 +254,6 @@ module Unit
         end
       end
     end
+
   end
 end

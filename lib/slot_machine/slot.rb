@@ -12,6 +12,12 @@ module SlotMachine
         def self.default_interval
           @interval || 10
         end
+
+        def self.slots_class
+          @slots_class ||= "#{name}s".split("::").inject(Object) do |mod, name|
+            mod.const_get name
+          end
+        end
       end
     end
 
@@ -53,6 +59,14 @@ module SlotMachine
         other = self.class.new other
       end
       match_compared to_compared, other.to_compared, interval
+    end
+
+    def +(other)
+      self.class.slots_class.new(self) + other
+    end
+
+    def -(other)
+      self.class.slots_class.new(self) - other
     end
 
     def ==(other)
