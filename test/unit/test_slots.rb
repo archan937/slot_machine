@@ -20,6 +20,14 @@ module Unit
         it "should accept ranges" do
           slots = Slots.new 10..20, Slot.new(30..40)
           assert_equal [Slot.new(10..20), Slot.new(30..40)], slots.range_slots
+
+          slots = Slots.new 10..20, Slot.new(22..30)
+          assert_equal [Slot.new(10..20), Slot.new(22..30)], slots.range_slots
+        end
+
+        it "should merge slots on initialization" do
+          slots = Slots.new 10..20, 20..30
+          assert_equal [Slot.new(10..30)], slots.range_slots
         end
 
         it "should raise an exception when invalid" do
@@ -49,7 +57,7 @@ module Unit
           assert_equal slots, Slots.new(1..2, 3..4)
           assert_equal slots, Slots.new([1..2, 3..4])
           assert_equal slots, Slots.new(Slot.new(1..2), Slot.new(3..4))
-          assert_equal slots, [Slot.new(1..2), Slot.new(3..4)]
+          assert_equal slots, [Slot.new(1..4)]
         end
       end
 

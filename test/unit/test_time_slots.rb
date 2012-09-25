@@ -4,6 +4,11 @@ module Unit
   class TestTimeSlots < MiniTest::Unit::TestCase
 
     describe TimeSlots do
+      it "should merge slots on initialization" do
+        time_slots = TimeSlots.new 1015..1100, 1100..1115
+        assert_equal [TimeSlot.new(1015..1115)], time_slots.range_slots
+      end
+
       it "should be able to add slots" do
         time_slot = TimeSlot.new 1015..1100
 
