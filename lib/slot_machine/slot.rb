@@ -86,6 +86,10 @@ module SlotMachine
 
   protected
 
+    def typecast(value)
+      value.to_s
+    end
+
     def valid?(value)
       true
     end
@@ -139,7 +143,7 @@ module SlotMachine
     end
 
     def typecast!(value, operator, compared)
-      Integer(value.to_s).tap do |value|
+      Integer(typecast(value)).tap do |value|
         raise ArgumentError, "Passed value should be #{operator} #{compared} (#{value} given)" if compared && !value.send(operator, compared)
       end
     end

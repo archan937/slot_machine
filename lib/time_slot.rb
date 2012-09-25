@@ -7,6 +7,10 @@ class TimeSlot
 
 protected
 
+  def typecast(value)
+    value.is_a?(Time) ? value.strftime("%Y%m%d%H%M") : value.to_s
+  end
+
   def valid?(value)
     (value - (100 * (value / 100))) < 60
   end

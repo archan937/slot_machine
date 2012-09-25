@@ -1,5 +1,7 @@
 require File.expand_path("../../test_helper", __FILE__)
 
+require "time"
+
 module Unit
   class TestTimeSlot < MiniTest::Unit::TestCase
 
@@ -13,6 +15,17 @@ module Unit
         assert_raises ArgumentError do
           TimeSlot.new 855..860
         end
+      end
+
+      it "should accept time objects" do
+        assert_equal [
+          198208010859,
+          198208010900,
+          198208010901,
+          198208010902,
+          198208010903,
+          198208010904
+        ], TimeSlot.new(Time.parse("1982-08-01 08:59")..Time.parse("1982-08-01 09:05")).send(:to_compared)
       end
 
       it "should represent itself as an array when invoking to_compared" do
@@ -41,6 +54,13 @@ module Unit
           TimeSlot.new(1051..1131),
           TimeSlot.new(1109..1149)
         ], time_slot.match(40, 18)
+
+        assert_equal [
+          TimeSlot.new(198208011015..198208011055),
+          TimeSlot.new(198208011033..198208011113),
+          TimeSlot.new(198208011051..198208011131),
+          TimeSlot.new(198208011109..198208011149)
+        ], TimeSlot.new(Time.parse("1982-08-01 10:15")..Time.parse("1982-08-01 12:00")).match(40, 18)
 
         assert_equal [], time_slot.match(945..1005)
         assert_equal [], time_slot.match(1205..1225)

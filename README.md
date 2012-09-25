@@ -127,8 +127,7 @@ Well that's about it! Pretty straightforward, right? Have fun playing with the `
 
 ## TODO
 
-* Accept Time objects within TimeSlot
-* Update documentation regarding Slots and TimeSlots
+* Update documentation regarding Slots, TimeSlots and Time objects
 
 ## Contact me
 
