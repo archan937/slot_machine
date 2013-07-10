@@ -135,7 +135,7 @@ For support, remarks and requests, please mail me at [paul.engel@holder.nl](mail
 
 ## License
 
-Copyright (c) 2012 Paul Engel, released under the MIT license
+Copyright (c) 2013 Paul Engel, released under the MIT license
 
 [http://holder.nl](http://holder.nl) - [http://codehero.es](http://codehero.es) - [http://gettopup.com](http://gettopup.com) - [http://github.com/archan937](http://github.com/archan937) - [http://twitter.com/archan937](http://twitter.com/archan937) - [paul.engel@holder.nl](mailto:paul.engel@holder.nl)
 

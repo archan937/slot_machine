@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+require File.expand_path("../lib/slot_machine/version", __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Paul Engel"]
@@ -12,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "slot_machine"
   gem.require_paths = ["lib"]
-  gem.version       = "0.1.0"
+  gem.version       = SlotMachine::VERSION
 
   gem.add_development_dependency "minitest", "4.6.2"
   gem.add_development_dependency "mocha", "0.13.2"

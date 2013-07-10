@@ -1,5 +1,13 @@
 = SlotMachine CHANGELOG
 
+== Version 0.1.1 (July 10, 2013)
+
+* Introduced SlotMachine::Slots (also Slots and TimeSlots) for addition and subtraction of slots
+* Being able to match available slots within slots
+* Merging ranges on initialization of a slots instance
+* Accepting Time objects within TimeSlot
+* Improved Bundler setup
+
 == Version 0.1.0 (September 16, 2012)
 
 * Initial release
