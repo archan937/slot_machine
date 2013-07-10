@@ -33,7 +33,7 @@ module Unit
           assert slot.respond_to?(:end=)
           assert slot.respond_to?(:length)
           assert slot.respond_to?(:length=)
-          assert slot.respond_to?(:to_compared)
+          assert slot.respond_to?(:to_compared, true)
           assert slot.respond_to?(:match)
           assert slot.respond_to?(:+)
           assert slot.respond_to?(:-)
