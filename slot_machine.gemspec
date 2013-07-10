@@ -13,4 +13,7 @@ Gem::Specification.new do |gem|
   gem.name          = "slot_machine"
   gem.require_paths = ["lib"]
   gem.version       = "0.1.0"
+
+  gem.add_development_dependency "minitest", "4.6.2"
+  gem.add_development_dependency "mocha", "0.13.2"
 end

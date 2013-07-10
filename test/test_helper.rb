@@ -1,7 +1,6 @@
-require "rubygems"
-require "bundler"
+$:.unshift File.expand_path("../../lib", __FILE__)
 
 require "minitest/unit"
 require "minitest/autorun"
-
-Bundler.require :gem_default, :gem_test
+require "mocha/setup"
+require "slot_machine"
