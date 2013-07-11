@@ -17,4 +17,5 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "minitest", "4.6.2"
   gem.add_development_dependency "mocha", "0.13.2"
+  gem.add_development_dependency "rake"
 end
