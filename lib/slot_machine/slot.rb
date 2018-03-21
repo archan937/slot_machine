@@ -154,7 +154,7 @@ module SlotMachine
     end
 
     def match_compared(a, b, interval)
-      if a.is_a?(Array) && b.is_a?(Fixnum)
+      if a.is_a?(Array) && b.is_a?(Integer)
         raise ArgumentError, "Length has to be greater than 0 (#{b} given)" unless b > 0
         i = 0
         [].tap do |matches|
@@ -164,7 +164,7 @@ module SlotMachine
             i += interval
           end
         end
-      elsif a.is_a?(Fixnum) && b.is_a?(Array)
+      elsif a.is_a?(Integer) && b.is_a?(Array)
         match_compared b, a, interval
       elsif a.is_a?(Array) && b.is_a?(Array)
         [].tap do |matches|
