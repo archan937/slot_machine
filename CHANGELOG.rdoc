@@ -1,5 +1,9 @@
 = SlotMachine CHANGELOG
 
+== Version 0.1.2 (April 19, 2018)
+
+* Fixed Fixnum deprecation (credits to @dmkl)
+
 == Version 0.1.1 (July 10, 2013)
 
 * Introduced SlotMachine::Slots (also Slots and TimeSlots) for addition and subtraction of slots
